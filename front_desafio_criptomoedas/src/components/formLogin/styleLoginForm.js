@@ -12,7 +12,7 @@ export const LoginFormWrapper = styled.div`
     align-items: center;
     justify-content: space-evenly;
     width: 450px;
-    height: 300px;
+    height: 350px;
     background-color: ${props => props.theme.colors.formLoginBG};
     border-radius: 10px;
     border: 3px solid ${props => props.theme.colors.formBorder};
@@ -46,6 +46,16 @@ export const LoginFormWrapper = styled.div`
         width: 150px;
         height: 40px;
         border-radius: 5px;
+        background-color: #e6e6ed;
+        border: none;
+        font-size: 16px;
+      }
+      #btnFirst:hover {
+        cursor: pointer;
+        background-color: #c7c7e0;
+        border: 2px solid #4ef46c;
+        font-size: 18px;
+        color: #9212ed;
       }
       #buttonRegister {
         color: yellow;
