@@ -13,3 +13,10 @@ type User struct {
 }
 
 type Users []*User
+
+type User_update struct {
+	ID          primitive.ObjectID `bson:"_id" json:"id" structs:"id"`
+	Name        string             `bson:"name" json:"name" binding:"required"`
+	Email       string             `bson:"email" json:"email" binding:"required"`
+	Name_Crypto string             `bson:"name_crypto" json:"name_crypto"`
+}
