@@ -47,7 +47,7 @@ func Read() (Users, error) {
 	return users, nil
 }
 
-func Update(user User, user_id string) error {
+func Update(user User_update, user_id string) error {
 	var err error
 
 	oid, _ := primitive.ObjectIDFromHex(user_id)
@@ -58,7 +58,6 @@ func Update(user User, user_id string) error {
 		"$set": bson.M{
 			"name":        user.Name,
 			"email":       user.Email,
-			"password":    user.Password,
 			"name_crypto": user.Name_Crypto,
 		},
 	}
