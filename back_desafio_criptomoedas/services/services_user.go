@@ -1,0 +1,44 @@
+package services
+
+import (
+	m "github.com/aryherton/desafio_criptomoedas/database/models"
+)
+
+func CreateUser(user m.User) error {
+	err := m.Create(user)
+
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func Read() (m.Users, error) {
+	user, err := m.Read()
+
+	if err != nil {
+		return m.Users{}, err
+	}
+
+	return user, nil
+}
+
+func Update(user m.User, user_id string) error {
+	err := m.Update(user, user_id)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func Delete(user_id string) error {
+	err := m.Delete(user_id)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
