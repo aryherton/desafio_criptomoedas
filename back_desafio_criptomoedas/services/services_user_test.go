@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	m "github.com/aryherton/desafio_criptomoedas/database/models"
-	s "github.com/aryherton/desafio_criptomoedas/database/services"
+	s "github.com/aryherton/desafio_criptomoedas/services"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
@@ -50,10 +50,9 @@ func TestReadUser(t *testing.T) {
 }
 
 func TestUpdateUser(t *testing.T) {
-	user := m.User{
+	user := m.User_update{
 		Name:        "Barbosa",
 		Email:       "test@update.com",
-		Password:    "12121212121212",
 		Name_Crypto: "BTC",
 	}
 
