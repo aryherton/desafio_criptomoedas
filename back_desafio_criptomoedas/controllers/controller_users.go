@@ -57,3 +57,31 @@ func GetAllUsers(c *gin.Context) {
 		c.JSON(200, users)
 	}
 }
+
+func UpdateUser(c *gin.Context) {
+	param := c.Param("id")
+	var body m.User_update
+	if err := c.ShouldBindJSON(&body); err != nil {
+		c.JSON(400, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+	user := m.User_update{
+		ID:          body.ID,
+		Name:        body.Name,
+		Email:       body.Email,
+		Name_Crypto: body.Name_Crypto,
+	}
+	err := s.Update(user, param)
+
+	if err != nil {
+		c.JSON(500, gin.H{
+			"message": "Error updating user",
+		})
+	} else {
+		c.JSON(200, gin.H{
+			"message": "User updated",
+		})
+	}
+}
