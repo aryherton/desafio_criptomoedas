@@ -13,6 +13,7 @@ func ConfigureRouter(router *gin.Engine) *gin.Engine {
 		{
 			user.GET("/", md.CheckToken, c.GetAllUsers)
 			user.POST("/", c.CreatUsers)
+			user.PATCH("/:id", md.CheckToken, c.UpdateUser)
 		}
 	}
 	return router
