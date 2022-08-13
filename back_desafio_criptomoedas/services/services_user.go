@@ -23,7 +23,7 @@ func Read() (m.Users, error) {
 	return user, nil
 }
 
-func Update(user m.User, user_id string) error {
+func Update(user m.User_update, user_id string) error {
 	err := m.Update(user, user_id)
 
 	if err != nil {
