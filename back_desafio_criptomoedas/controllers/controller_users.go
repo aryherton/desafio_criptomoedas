@@ -2,9 +2,9 @@ package controller
 
 import (
 	m "github.com/aryherton/desafio_criptomoedas/database/models"
-	s "github.com/aryherton/desafio_criptomoedas/database/services"
-	s_bcry "github.com/aryherton/desafio_criptomoedas/database/services/bcrypt"
-	s_token "github.com/aryherton/desafio_criptomoedas/database/services/token"
+	s "github.com/aryherton/desafio_criptomoedas/services"
+	s_bcry "github.com/aryherton/desafio_criptomoedas/services/bcrypt"
+	s_token "github.com/aryherton/desafio_criptomoedas/services/token"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
