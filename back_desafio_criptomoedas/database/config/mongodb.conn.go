@@ -19,22 +19,6 @@ var (
 )
 
 func GetCollection(collection string) *mongo.Collection {
-	// uri := fmt.Sprintf("mongodb://%s:%s@%s:%s/%s", usr, pwd, host, port, db)
-
-	// client, err := mongo.NewClient(options.Client().ApplyURI(uri))
-
-	// if err != nil {
-	// 	panic(err.Error())
-	// }
-
-	// ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	// err = client.Connect(ctx)
-
-	// if err != nil {
-	// 	panic(err.Error())
-	// }
-
-	// return client.Database(db).Collection(collection)
 
 	serverAPIOptions := options.ServerAPI(options.ServerAPIVersion1)
 	clientOptions := options.Client().
