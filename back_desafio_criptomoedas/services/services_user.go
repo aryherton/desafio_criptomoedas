@@ -13,6 +13,16 @@ func CreateUser(user m.User) error {
 	return nil
 }
 
+func LoginUser(email string, password string) (string, error) {
+	token, err := m.Login(email, password)
+
+	if err != nil {
+		return "", err
+	}
+
+	return token, nil
+}
+
 func Read() (m.Users, error) {
 	user, err := m.Read()
 
