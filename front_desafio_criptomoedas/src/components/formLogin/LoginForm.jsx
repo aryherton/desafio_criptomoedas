@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 
+import { creatRegister } from '../../services/requestApi';
+
 import { LoginFormWrapper } from './styleLoginForm';
 
 function LoginForm() {
-    const [userName, setUserName] = useState('');
+    const [name, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [typeForm, setTypeForm] = useState('login');
 
-    const getDataLogin = () => {
-        console.log(userName, email, password);
+    const loginAndRegister = async () => {
+        if (typeForm === 'register') {
+            const token = await creatRegister('user', {
+                name,
+                email,
+                password,
+            });
+            console.log(token);
+        }
     };
 
     return (
@@ -52,7 +61,7 @@ function LoginForm() {
                         id="btnFirst"
                         type="button"
                         className="btn"
-                        onClick={ getDataLogin }
+                        onClick={ loginAndRegister }
                     >
                         { typeForm === 'login' ? 'Login' : 'Registre-se' }
                     </button>
