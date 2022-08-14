@@ -46,6 +46,26 @@ func CreatUsers(c *gin.Context) {
 
 }
 
+func Login(c *gin.Context) {
+	var body m.User_login
+	if err := c.ShouldBindJSON(&body); err != nil {
+		c.JSON(400, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
+	token, err := s.LoginUser(body.Email, body.Password)
+
+	if err != nil {
+		c.JSON(500, gin.H{
+			"message": "Error getting user",
+		})
+	}
+
+	c.JSON(200, token)
+}
+
 func GetAllUsers(c *gin.Context) {
 	users, err := s.Read()
 
