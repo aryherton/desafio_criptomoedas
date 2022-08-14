@@ -20,3 +20,8 @@ type User_update struct {
 	Email       string             `bson:"email" json:"email" binding:"required"`
 	Name_Crypto string             `bson:"name_crypto" json:"name_crypto"`
 }
+
+type User_login struct {
+	Email    string `bson:"email" json:"email" binding:"required"`
+	Password string `bson:"password" json:"password" binding:"required"`
+}
