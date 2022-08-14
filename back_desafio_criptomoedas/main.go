@@ -8,18 +8,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// func getAll(c *gin.Context) {
-// 	c.JSON(200, gin.H{
-// 		"message": "Ai simmmmmmmmmmmmmmmmmmmmmmmmmmm",
-// 	})
-// }
-
-// func main() {
-// 	r := gin.Default()
-// 	r.GET("/user", getAll)
-// 	r.Run(":3005")
-// }
-
 func main() {
 	err := godotenv.Load()
 	if err != nil {
