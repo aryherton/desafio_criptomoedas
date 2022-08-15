@@ -12,9 +12,10 @@ func ConfigureRouter(router *gin.Engine) *gin.Engine {
 		user := main.Group("user")
 		{
 			user.GET("/", md.CheckToken, c.GetAllUsers)
+
 			user.POST("/register", c.CreatUsers)
 			user.POST("/login", c.Login)
-			user.PATCH("/:id", md.CheckToken, c.UpdateUser)
+			user.PUT("/:id", md.CheckToken, c.UpdateUser)
 		}
 	}
 	return router

@@ -4,6 +4,7 @@ import (
 	"log"
 
 	r "github.com/aryherton/desafio_criptomoedas/server/routes"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,9 +14,24 @@ type Sever struct {
 }
 
 func NewServer(port string) Sever {
+	router := gin.Default()
+
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"*"},
+		AllowHeaders:     []string{"Origin, Content-Type, Accept, Authorization"},
+		ExposeHeaders:    []string{"*"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+			return true
+		},
+	}))
+
+	// router.Use(cors.Default())
+
 	return Sever{
 		port:   port,
-		server: gin.Default(),
+		server: router,
 	}
 }
 
