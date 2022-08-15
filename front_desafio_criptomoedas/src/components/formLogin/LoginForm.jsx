@@ -26,7 +26,7 @@ function LoginForm() {
                 email: "mtestttttt.com",
                 name_crypto: "USD",
             };
-            const test = await updateUser('user/62f81a594fe42fd199d7b773', obj, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNpY2Vyb0B0ZXN0LmNvbSIsImV4cCI6MTY2MDY3MzM2MSwiaWF0IjoxNjYwNTg2OTYxLCJpc3MiOiJjcmlwdG9tb2VkYXMifQ.o1u0MI1jCrBRnR_dbJ1BGU17v5ztv1uFYeF9FQl8Oso');
+            const test = await getAllUser('user', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNpY2Vyb0B0ZXN0LmNvbSIsImV4cCI6MTY2MDY3MzM2MSwiaWF0IjoxNjYwNTg2OTYxLCJpc3MiOiJjcmlwdG9tb2VkYXMifQ.o1u0MI1jCrBRnR_dbJ1BGU17v5ztv1uFYeF9FQl8Oso');
             console.log(test);
         } else {
             token = await login('user/login', {
