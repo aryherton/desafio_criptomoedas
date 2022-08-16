@@ -33,6 +33,16 @@ func Read() (m.Users, error) {
 	return user, nil
 }
 
+func ReadByEmail(email string) (m.User, error) {
+	user, err := m.Read_By_Email(email)
+
+	if err != nil {
+		return m.User{}, err
+	}
+
+	return user, nil
+}
+
 func Update(user m.User_update, user_id string) error {
 	err := m.Update(user, user_id)
 

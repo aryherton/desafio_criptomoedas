@@ -24,24 +24,30 @@ func CreatUsers(c *gin.Context) {
 		return
 	}
 
-	pwd := s_bcry.HashPassword(body.Password, 10)
+	if _, err := s.ReadByEmail(body.Email); err != nil {
+		pwd := s_bcry.HashPassword(body.Password, 10)
 
-	user := m.User{
-		ID:          oid,
-		Name:        body.Name,
-		Email:       body.Email,
-		Password:    pwd,
-		Name_Crypto: body.Name_Crypto,
-	}
-	err := s.CreateUser(user)
+		user := m.User{
+			ID:          oid,
+			Name:        body.Name,
+			Email:       body.Email,
+			Password:    pwd,
+			Name_Crypto: body.Name_Crypto,
+		}
+		err := s.CreateUser(user)
 
-	if err != nil {
-		c.JSON(500, gin.H{
-			"message": "Error creating user",
-		})
+		if err != nil {
+			c.JSON(500, gin.H{
+				"message": "Error creating user",
+			})
+		} else {
+			token := s_token.New_jwt_token().Create_token(user.Email)
+			c.JSON(200, token)
+		}
 	} else {
-		token := s_token.New_jwt_token().Create_token(user.Email)
-		c.JSON(200, token)
+		c.JSON(409, gin.H{
+			"message": "Email already exists",
+		})
 	}
 
 }
