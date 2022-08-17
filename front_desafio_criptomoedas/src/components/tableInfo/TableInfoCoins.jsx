@@ -24,7 +24,7 @@ function TableInfoCoins() {
             { dataCryptonApi.map((item, index) => {
               const classTr = index % 2 === 0 ? 'tr-even' : 'tr-odd';
               return (
-                <tr key={nanoid} className={ classTr }>
+                <tr key={ nanoid() } className={ classTr }>
                   <td id="tdFirst">
                     <div className="imgAndNameCoin">
                       <img src={item.img} alt={item.coin} />
