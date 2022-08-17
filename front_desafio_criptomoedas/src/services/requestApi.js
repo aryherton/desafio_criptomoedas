@@ -7,29 +7,34 @@ const api = axios.create({
 
 export const login = async (endPoint, body) => {
     const data = await api.post(endPoint, body)
-        .then((resp) => resp.data);
+        .then((resp) => resp.data)
+        .catch((err) => err.response.status);
 
     return data;
 };
 
 export const creatRegister = async (endPoint, body) => {
-    const { data } = await api.post(endPoint, body);
+  try {
+      const { data } = await api.post(endPoint, body);
 
-    return data.token;
+    return data;
+  } catch (error) {
+    return error.response.status;
+  }
 }
 
 export const getAllUser = async (endPoint, token) => {
-    api.defaults.headers.common['Authorization'] = token;
-    const { data } = await api.get(endPoint);
-
-    return data;
+  api.defaults.headers.common['Authorization'] = token;
+  const { data } = await api.get(endPoint);  
+  
+  return data;
 }
 
 export const updateUser = async (endPoint, body, token) => {
-    api.defaults.headers.common['Authorization'] = token;
-    const { data } = await api.put(endPoint, body);
+  api.defaults.headers.common['Authorization'] = token;
+  const { data } = await api.put(endPoint, body);
 
-    return data;
+  return data;
 }
 
 export default api;
