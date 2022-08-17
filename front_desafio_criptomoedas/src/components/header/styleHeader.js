@@ -48,6 +48,7 @@ const StyleHeaderWrapper = styled.header`
                 background: none;
                 border: none;
                 border-radius: 80px;
+                cursor: pointer;
             }
         }
     }
