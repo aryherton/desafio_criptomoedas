@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 
 import Context from '../../context/DataContext';
 import { creatRegister, login, getAllUser } from '../../services/requestApi';
+import { getDataApiMercBTC } from '../../services/apiMercadoBtc';
 
 import { LoginFormWrapper } from './styleLoginForm';
 
 function LoginForm() {
     const nav = useNavigate();
-    const { setDataUser } = useContext(Context);
+    const { setDataUser, setDataCryptApi } = useContext(Context);
     const [name, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -29,12 +30,24 @@ function LoginForm() {
             });
         }
         if (token) {
-            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify({ token, email }));
             const arrUsers = await getAllUser('user/', token);
+            const dataCryptonApi = await getDataApiMercBTC();
+            
+            setDataCryptApi(dataCryptonApi);
             setDataUser(arrUsers);
+
             nav('/home');
         }
     };
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if (user) {
+            nav('/home');
+        }
+    });
 
     return (
         <LoginFormWrapper>
