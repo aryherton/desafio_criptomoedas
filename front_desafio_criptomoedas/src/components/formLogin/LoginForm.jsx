@@ -14,6 +14,7 @@ function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [typeForm, setTypeForm] = useState('login');
+    const [error, setError] = useState('');
 
     const loginAndRegister = async () => {
         let token = '';
@@ -27,7 +28,13 @@ function LoginForm() {
                 email,
                 password,
             });
-        } else {
+            if (+token === 409) {
+                alert('E-mail já cadastrado');
+                return;
+            }
+
+        } if (typeForm === 'login') {
+    
             if (!email || !password) {
                 alert('Preencha todos os campos');
                 return;
@@ -37,11 +44,14 @@ function LoginForm() {
                 password,
             });
             
-            if (!token) {
-                setTypeForm('Not found');
+            if (!token || +token === 500) {
+                setError('Not found');
+                return;
             }
+
         }
         if (token) {
+            console.log('final');
             localStorage.setItem('user', JSON.stringify({ token, email, name }));
             const arrUsers = await getAllUser('user/', token);
             const dataCryptonApi = await getDataApiMercBTC();
@@ -114,7 +124,7 @@ function LoginForm() {
                     </button>
                 </div>
             </form>
-                {typeForm === 'Not found'
+            {error === 'Not found'
                     && (<span id="alertNotFound">Usuário não encontrado</span>)}
         </LoginFormWrapper>
     );
