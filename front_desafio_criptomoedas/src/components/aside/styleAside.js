@@ -7,9 +7,19 @@ const StyleAsideWrapper = styled.aside`
   width: 15%;
   height: 100%;
   margin-right: 20px;
+  margin-top: 60px;
+  #selectUpVote {
+    background-color: #393C3F;
+    border: none;
+    height: 30px;
+    border-radius: 2px;
+    color: #F9B50A;
+    
+  }
   h2 {
     color: #C2C8D1;
     font-size: 24px;
+    margin-top: 30px;
     margin-bottom: 15px;
   }
   #coinsPopular {
