@@ -4,6 +4,7 @@ export const LoginFormWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   form {
@@ -73,5 +74,10 @@ export const LoginFormWrapper = styled.div`
         border-color: yellow;
       }
     }
+  }
+  #alertNotFound {
+    color: yellow;
+    font-size: 18px;
+    margin-top: 30px;
   }
 `;
