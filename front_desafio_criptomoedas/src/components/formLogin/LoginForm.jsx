@@ -18,26 +18,37 @@ function LoginForm() {
     const loginAndRegister = async () => {
         let token = '';
         if (typeForm === 'register') {
+            if (!name || !email || !password) {
+                alert('Preencha todos os campos');
+                return;
+            }
             token = await creatRegister('user/register', {
                 name,
                 email,
                 password,
             });
         } else {
+            if (!email || !password) {
+                alert('Preencha todos os campos');
+                return;
+            }
             token = await login('user/login', {
                 email,
                 password,
             });
+            
+            if (!token) {
+                setTypeForm('Not found');
+            }
         }
         if (token) {
-            localStorage.setItem('user', JSON.stringify({ token, email }));
+            localStorage.setItem('user', JSON.stringify({ token, email, name }));
             const arrUsers = await getAllUser('user/', token);
             const dataCryptonApi = await getDataApiMercBTC();
-            
+
             setDataCryptApi(dataCryptonApi);
             setDataUser(arrUsers);
-
-            nav('/home');
+            nav('/home');           
         }
     };
 
@@ -103,6 +114,8 @@ function LoginForm() {
                     </button>
                 </div>
             </form>
+                {typeForm === 'Not found'
+                    && (<span id="alertNotFound">Usuário não encontrado</span>)}
         </LoginFormWrapper>
     );
 }
