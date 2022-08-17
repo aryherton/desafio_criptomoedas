@@ -20,12 +20,19 @@ function Aside() {
   
   return (
     <StyleAsideWrapper>
-      <div></div>
+      <div>
+        <select name="upvote" id="selectUpVote">
+          <option value="">Selecione uma moeda</option>
+          {coins && coins.map((obj) => (
+            <option key={nanoid()} value={obj.name}>{obj.name}</option>
+          ))}
+        </select>
+      </div>
       <h2>Favoritas</h2>
       {arrCoinsScore && <div id="coinsPopular">
         <ul>
           { arrCoinsScore.map((obj, index) => (
-            <li id="sortCoins" key={nanoid}>
+            <li id="sortCoins" key={ nanoid() }>
               <span>{ index + 1 }° - </span>
               <span>{ obj.name }</span>
             </li>
