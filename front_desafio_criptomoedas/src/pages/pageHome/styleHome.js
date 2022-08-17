@@ -1,19 +1,17 @@
 import styled from 'styled-components';
 
 const StyleHomeWrapper = styled.div`
-  display: flex;
   width: 100%;
   height: 100vh;
-  background-color: yellow;
-  #sectionMenuV {
-    width: 250px;
-    height: 100%;
-    background-color: red;
-  }
-  #asideHome {
-    width: calc(100% - 250px);
-    height: 100%;
-    background-color: green;
+  background-color: #171E29;
+  main {
+    display: flex;
+    justify-content: flex-end;;
+    align-items: center;
+    section{
+      width: 72%;
+      height: 100%;
+    }
   }
 `;
 
