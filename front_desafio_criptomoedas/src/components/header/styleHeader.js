@@ -6,6 +6,7 @@ const StyleHeaderWrapper = styled.header`
     justify-content: space-between;
     height: 90px;
     width: 100%;
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.59);
     #divImgLogo {
         margin-left: 80px;
         width: 90px;
