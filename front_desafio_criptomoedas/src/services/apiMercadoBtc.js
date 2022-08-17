@@ -12,7 +12,7 @@ export const getDataApiMercBTC = async () => {
             const resp = await axios.get(`https://www.mercadobitcoin.net/api/${coin.name}/ticker/`)
             .then(resp => resp)
             .catch(error => console.log(error));
-            console.log(resp.data.ticker);
+            
             let newObj = data.at(-1);
             
             delete newObj.tid;
