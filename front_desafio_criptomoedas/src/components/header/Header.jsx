@@ -27,6 +27,11 @@ function Header() {
   } else {
     nav('/');
   }
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    nav('/');
+  };
   
   return (
     <StyleHeaderWrapper>
@@ -47,7 +52,13 @@ function Header() {
           <p>{userName && userName.name}</p>
         </div>
         <div id="buttonSair">
-          <button type="button" className="btn btn-primary">Sair</button>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleLogout}
+          >
+            Sair
+          </button>
         </div>
       </div>
     </StyleHeaderWrapper>
