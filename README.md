@@ -19,7 +19,8 @@ O Desafio Técnico consiste em criar uma API com Golang que expõe endpoints de 
 <img src="./front_desafio_criptomoedas/src/img/react.png" alt="react"/>
 <img src="./front_desafio_criptomoedas/src/img/mongodb.png" alt="mongodb" />
 <img src="./front_desafio_criptomoedas/src/img/style-components.png" alt="styel_components" />
-<img src="./front_desafio_criptomoedas/src/img/heroku.png" alt="styel_components" /></br></br></br>
+<img src="./front_desafio_criptomoedas/src/img/heroku.png" alt="heroku" />
+<img src="./front_desafio_criptomoedas/src/img/go.ico" alt="heroku" /></br></br></br>
 
 # APP:
 https://desafio-criptomoedas.vercel.app/
