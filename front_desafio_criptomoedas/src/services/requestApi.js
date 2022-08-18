@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: `http://localhost:3005/api/cripto/`,
+    baseURL: `https://back-end-cripto.herokuapp.com/api/cripto/`,
 });
 
 export const login = async (endPoint, body) => {
